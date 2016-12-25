@@ -12,13 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-////        
-//            OmdbAPIClient.getMovies(title: "spotless") { (movie) in
-//                
-//                print(movie)
-//                
-//        }
+
         print("Right before getting called")
         OmdbAPIClient.searchMovies(title: "spot") { (movies) in
             print(movies)

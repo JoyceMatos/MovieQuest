@@ -16,6 +16,7 @@
 		2553778E1E0ADFAF002F7373 /* OmdbAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553778D1E0ADFAF002F7373 /* OmdbAPIClient.swift */; };
 		255377901E0ADFBF002F7373 /* OmdbDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */; };
 		255377921E0AE11A002F7373 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255377911E0AE11A002F7373 /* Movie.swift */; };
+		2553779A1E1067EA002F7373 /* SearchedMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255377991E1067EA002F7373 /* SearchedMovie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2553778D1E0ADFAF002F7373 /* OmdbAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmdbAPIClient.swift; sourceTree = "<group>"; };
 		2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmdbDataStore.swift; sourceTree = "<group>"; };
 		255377911E0AE11A002F7373 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		255377991E1067EA002F7373 /* SearchedMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedMovie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				2553778D1E0ADFAF002F7373 /* OmdbAPIClient.swift */,
 				2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */,
 				255377911E0AE11A002F7373 /* Movie.swift */,
+				255377991E1067EA002F7373 /* SearchedMovie.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				255377741E0ADF22002F7373 /* AppDelegate.swift in Sources */,
 				2553777C1E0ADF22002F7373 /* MovieQuest.xcdatamodeld in Sources */,
 				2553778E1E0ADFAF002F7373 /* OmdbAPIClient.swift in Sources */,
+				2553779A1E1067EA002F7373 /* SearchedMovie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +341,7 @@
 				255377871E0ADF22002F7373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

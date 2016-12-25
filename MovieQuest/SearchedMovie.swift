@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct SearchedMovie {
+    
+    let title: String
+    let type: String
+    let year: String
+    let imdbID: String
+    
+}
