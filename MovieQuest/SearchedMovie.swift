@@ -10,6 +10,7 @@ import Foundation
 
 struct SearchedMovie {
     
+    let poster: String?
     let title: String
     let type: String
     let year: String
