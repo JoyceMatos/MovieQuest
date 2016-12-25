@@ -8,8 +8,39 @@
 
 import Foundation
 
-class ImdbDataStore {
+class OmdbDataStore {
     
+    static let shared = OmdbDataStore()
+    var searchedMovies: [SearchedMovie] = []
+    
+    func getSearchedMovies(title: String, completion: () -> Void) {
+        
+        OmdbAPIClient.searchMovies(title: title) { (movies) in
+            self.searchedMovies.removeAll()
+            
+            let allMovies = movies["Search"] as! [[String : Any]]
+            
+            
+            for item in allMovies {
+                
+                let poster = item["Poser"] as! String?
+                let title = item["Title"] as! String
+                let type = item["Type"] as! String
+                let year = item["Year"] as! String
+                let imdbID = item["imdbID"] as! String
+                
+                
+                let movie = SearchedMovie(poster: poster, title: title, type: type, year: year, imdbID: imdbID)
+                
+                self.searchedMovies.append(movie)
+                
+            }
+            print(self.searchedMovies)
 
+        }
+        
+        
+    }
+    
 
 }

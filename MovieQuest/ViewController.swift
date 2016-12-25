@@ -10,13 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let store = OmdbDataStore.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Right before getting called")
-        OmdbAPIClient.searchMovies(title: "spot") { (movies) in
-            print(movies)
+        
+        store.getSearchedMovies(title: "spot") {
+            print("Getting Called")
         }
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
