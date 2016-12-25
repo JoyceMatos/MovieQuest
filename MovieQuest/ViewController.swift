@@ -12,12 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-            OmdbAPIClient.getMovies(title: "spotless") { (movie) in
-                
-                print(movie)
-                
+//        
+////        
+//            OmdbAPIClient.getMovies(title: "spotless") { (movie) in
+//                
+//                print(movie)
+//                
+//        }
+        print("Right before getting called")
+        OmdbAPIClient.searchMovies(title: "spot") { (movies) in
+            print(movies)
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
