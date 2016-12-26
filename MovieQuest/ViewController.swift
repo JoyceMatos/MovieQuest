@@ -33,7 +33,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
         movieView.collectionViewLayout = layout
         
-        store.getSearchedMovies(title: "spot") {
+        store.getSearchedMovies(title: "crime") {
             
             DispatchQueue.main.async {
                 print("============Getting Called===============")
@@ -64,10 +64,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
-    // Did select item
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedMovie = store.searchedMovies[indexPath.item]
+
+        // TODO: - Segue into detailed view 
+        
+        
+    }
     
     
     
