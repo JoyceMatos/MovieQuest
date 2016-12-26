@@ -55,4 +55,31 @@ class OmdbAPIClient {
         task.resume()
     }
     
+    class func getMovieDetails(imdbID: String, completion: @escaping ([String : String]) -> Void) {
+        
+        let urlString = "http://www.omdbapi.com/?i=\(imdbID)&plot=short&r=json"
+        
+        guard let url = URL(string: urlString) else { print("optional url: now leaving function"); return }
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            
+            guard let data = data else { print("Unable to get data: \(error?.localizedDescription)"); return }
+            
+            if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String] {
+                
+                if let responseJSON = responseJSON {
+                    completion(responseJSON)
+                }
+            }
+        }
+        task.resume()
+        
+        
+        
+        
+        
+    }
+    
 }

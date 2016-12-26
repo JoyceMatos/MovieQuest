@@ -70,6 +70,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         // TODO: - Segue into detailed view 
         
+    
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMovieDetail" {
+            let destination = segue.destination as! DetailedViewController
+            let indexPath = movieView.indexPath(for: sender as! UICollectionViewCell)
+            destination.imdbID = store.searchedMovies[(indexPath?.item)!].imdbID
+            
+            
+        }
+        
+        
+        
         
     }
     
