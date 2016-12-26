@@ -34,9 +34,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         movieView.collectionViewLayout = layout
         
         store.getSearchedMovies(title: "spot") {
-            print("Getting Called")
+            
+            DispatchQueue.main.async {
+                print("============Getting Called===============")
+                self.movieView.reloadData()
+            }
         }
-
     }
     
     // MARK: - Data Source Methods
@@ -46,12 +49,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return store.searchedMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = movieView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCell
+        let movie = store.searchedMovies[indexPath.item]
         
+        let image = loadPosterImage(posterURL: movie.poster!)
+        cell.moviePoster.image = image
+        cell.titleOfMovie.text = movie.title
         cell.backgroundColor = UIColor.darkGray
                 
         return cell
@@ -63,12 +70,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //    }
     
     
-
     
     
-    // You can always add a function for headers, ie: title = search term: "spot"
-
-
+    // Mark: - Image functions
+    func loadPosterImage(posterURL: String) -> UIImage? {
+        var image: UIImage?
+        
+        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
+            if data != nil {
+                return UIImage(data: data)
+            }
+        }
+        return nil
+    }
 
 }
 

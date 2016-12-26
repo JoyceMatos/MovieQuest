@@ -29,13 +29,12 @@ class OmdbDataStore {
                 let year = item["Year"] as! String
                 let imdbID = item["imdbID"] as! String
                 
-                
                 let movie = SearchedMovie(poster: poster, title: title, type: type, year: year, imdbID: imdbID)
                 
                 self.searchedMovies.append(movie)
                 
+                
             }
-            print(self.searchedMovies)
 
         }
         

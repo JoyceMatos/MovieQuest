@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchedMovie {
+class SearchedMovie {
     
     let poster: String?
     let title: String
@@ -16,4 +16,22 @@ struct SearchedMovie {
     let year: String
     let imdbID: String
     
+    init(poster: String?, title: String, type: String, year: String, imdbID: String) {
+        
+        self.poster = poster
+        self.title = title
+        self.type = type
+        self.year = year
+        self.imdbID = imdbID
+        
+    }
+    
+    
+
+}
+
+extension OmdbDataStore: CustomStringConvertible {
+    var description: String {
+        return searchedMovies.description
+    }
 }
