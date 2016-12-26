@@ -17,6 +17,7 @@
 		255377901E0ADFBF002F7373 /* OmdbDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */; };
 		255377921E0AE11A002F7373 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255377911E0AE11A002F7373 /* Movie.swift */; };
 		2553779A1E1067EA002F7373 /* SearchedMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255377991E1067EA002F7373 /* SearchedMovie.swift */; };
+		25F73D8A1E116B0D00F6CCF7 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F73D891E116B0D00F6CCF7 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmdbDataStore.swift; sourceTree = "<group>"; };
 		255377911E0AE11A002F7373 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		255377991E1067EA002F7373 /* SearchedMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedMovie.swift; sourceTree = "<group>"; };
+		25F73D891E116B0D00F6CCF7 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				255377771E0ADF22002F7373 /* Main.storyboard */,
+				25F73D891E116B0D00F6CCF7 /* MovieCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255377761E0ADF22002F7373 /* ViewController.swift in Sources */,
+				25F73D8A1E116B0D00F6CCF7 /* MovieCell.swift in Sources */,
 				255377901E0ADFBF002F7373 /* OmdbDataStore.swift in Sources */,
 				255377921E0AE11A002F7373 /* Movie.swift in Sources */,
 				255377741E0ADF22002F7373 /* AppDelegate.swift in Sources */,
