@@ -23,7 +23,7 @@ class OmdbDataStore {
             
             for item in allMovies {
                 
-                let poster = item["Poser"] as! String?
+                let poster = item["Poster"] as! String?
                 let title = item["Title"] as! String
                 let type = item["Type"] as! String
                 let year = item["Year"] as! String

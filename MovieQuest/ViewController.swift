@@ -53,10 +53,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = movieView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCell
         
         cell.backgroundColor = UIColor.darkGray
-        
-        
+                
         return cell
     }
+    
+    // Did select item
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        <#code#>
+//    }
     
     
 
