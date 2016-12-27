@@ -12,6 +12,7 @@ class OmdbDataStore {
     
     static let shared = OmdbDataStore()
     var searchedMovies: [SearchedMovie] = []
+    var selectedMovie = Movie()
     
     func getSearchedMovies(title: String, completion: () -> Void) {
         
@@ -57,10 +58,8 @@ class OmdbDataStore {
             let type = movieDetails["Type"]
             let imdbRating = movieDetails["imdbRating"]
             
-            let movie = Movie(title: title, year: year, rated: rated, released: released, runtime: runtime, genre: genre, director: director, writer: writer, actors: actors, plot: plot, language: language, country: country, poster: nil, type: type, imdbRating: imdbRating)
-            
-            searchedMovies.append(movie)
-            
+            selectedMovie = Movie(title: title, year: year, rated: rated, released: released, runtime: runtime, genre: genre, director: director, writer: writer, actors: actors, plot: plot, language: language, country: country, poster: nil, type: type, imdbRating: imdbRating)
+                        
         }
         
     }
