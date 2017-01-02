@@ -28,12 +28,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         movieView.delegate = self
         movieView.dataSource = self
         
+        
         let width = (movieView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
         movieView.collectionViewLayout = layout
         
-        store.getSearchedMovies(title: "crime") {
+       // DispatchQueue.main.async {
+        
+        self.store.getSearchedMovies(title: "crime") {
             
             DispatchQueue.main.async {
                 print("============Getting Called===============")
@@ -56,6 +59,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = movieView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCell
         let movie = store.searchedMovies[indexPath.item]
         
+        // TODO: - Carefully unwrap image
         let image = loadPosterImage(posterURL: movie.poster!)
         cell.moviePoster.image = image
         cell.titleOfMovie.text = movie.title
@@ -69,6 +73,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let selectedMovie = store.searchedMovies[indexPath.item]
 
         // TODO: - Segue into detailed view 
+     //   performSegue(withIdentifier: "showDetail", sender: self)
+    
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let destination = segue.destination as! DetailedViewController
+            let indexPath = movieView.indexPath(for: sender as! UICollectionViewCell)
+            destination.imdbID = store.searchedMovies[(indexPath?.item)!].imdbID
+
+            
+        }
+        
+        
         
         
     }

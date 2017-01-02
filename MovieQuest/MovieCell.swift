@@ -13,7 +13,7 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var titleOfMovie: UILabel!
     
-    
+    // TODO : - Add favorite Icon 
     
     
 }
