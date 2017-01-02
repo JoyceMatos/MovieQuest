@@ -17,8 +17,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     private let numberOfItemsPerRow: CGFloat = 2.0
     let heightAdjustment: CGFloat = 60.0
     
+    var favorites = [Movie]()
     
     @IBOutlet weak var movieView: UICollectionView!
+    @IBOutlet weak var searchTextField: UITextField!
+ 
+    @IBAction func searchButton(_ sender: Any) {
+        
+        
+        guard let input = searchTextField.text else { print("leaving searchButton"); return }
+        
+        DispatchQueue.main.async {
+        self.store.getSearchedMovies(title: input) {
+                            print("============Getting Called===============")
+                self.movieView.reloadData()
+            }
+        }
+        
+        // TODO: - Add Activity Indicator 
+        
+    }
+    
     
     
     // MARK: - View Controller Life Cycle
@@ -34,8 +53,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
         movieView.collectionViewLayout = layout
         
-       // DispatchQueue.main.async {
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.store.getSearchedMovies(title: "crime") {
             
             DispatchQueue.main.async {
@@ -43,6 +63,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.movieView.reloadData()
             }
         }
+        
+        
     }
     
     // MARK: - Data Source Methods
@@ -71,6 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedMovie = store.searchedMovies[indexPath.item]
+        
         
 
         // TODO: - Segue into detailed view 

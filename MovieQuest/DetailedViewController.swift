@@ -23,9 +23,6 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var movieGenreLabel: UILabel!
     @IBOutlet weak var moviePlotLabel: UILabel!
     
-    
-    
-     
     override func viewDidLoad() {
         super.viewDidLoad()
 

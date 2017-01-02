@@ -19,8 +19,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vMI-3c-G73"/>
-                        <segue destination="rkK-Jv-seD" kind="show" id="Hjz-G0-hdD"/>
+                        <segue destination="W0b-r6-YYr" kind="relationship" relationship="viewControllers" id="vMI-3c-G73"/>
+                        <segue destination="rkK-Jv-seD" kind="relationship" relationship="viewControllers" id="LDl-9X-Npp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHP-i1-brZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,24 +105,36 @@
                                 </cells>
                             </collectionView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmz-b5-5gX">
-                                <rect key="frame" x="108" y="52" width="244" height="30"/>
+                                <rect key="frame" x="108" y="52" width="223" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="mXY-uN-Tfh"/>
+                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOs-q5-7WM">
+                                <rect key="frame" x="338" y="50" width="37" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="O"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QuG-pP-oKN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Qaz-TT-fUN"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="i7e-2Y-vhK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="movieView" destination="lPY-dq-lIJ" id="9eG-rq-a8K"/>
+                        <outlet property="searchTextField" destination="mmz-b5-5gX" id="W5g-m0-Wmn"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3046" y="-542"/>
+            <point key="canvasLocation" x="4036" y="-544"/>
         </scene>
         <!--Favorites Table View Controller-->
         <scene sceneID="8de-ug-Hjl">
@@ -249,7 +261,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRj-bf-1dO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4042" y="-543"/>
+            <point key="canvasLocation" x="4980" y="-543.77811094452773"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="99n-sV-oMy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W0b-r6-YYr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Qaz-TT-fUN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Www-aR-ifL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gvT-oy-e5F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4K-XH-0lR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3045.5999999999999" y="-542.87856071964018"/>
         </scene>
     </scenes>
 </document>
