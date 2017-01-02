@@ -71,6 +71,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedMovie = store.searchedMovies[indexPath.item]
+        
 
         // TODO: - Segue into detailed view 
      //   performSegue(withIdentifier: "showDetail", sender: self)

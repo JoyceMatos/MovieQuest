@@ -10,10 +10,30 @@ import UIKit
 
 class MovieCell: UICollectionViewCell {
     
+    var didTap = false
+    
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var titleOfMovie: UILabel!
     
-    // TODO : - Add favorite Icon 
     
+    @IBAction func favoriteButton(_ sender: Any) {
+        
+        didTap = true
+        print(didTap)
+            
+            print(titleOfMovie.text)
+           // add info to favorites
+            // Store in core data
+            // populate tableview of Favorites
+            
+       
+            // Remove from core data?
+        
+        
+        
+        
+        // Add animations / colors / actions
+        
+    }
     
 }
