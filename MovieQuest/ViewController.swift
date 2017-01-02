@@ -53,6 +53,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
         movieView.collectionViewLayout = layout
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
