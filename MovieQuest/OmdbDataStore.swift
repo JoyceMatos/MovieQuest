@@ -12,9 +12,9 @@ class OmdbDataStore {
     
     static let shared = OmdbDataStore()
     var searchedMovies: [SearchedMovie] = []
-    var selectedMovie = Movie()
+    var selectedMovie: Movie?
     
-    func getSearchedMovies(title: String, completion: () -> Void) {
+    func getSearchedMovies(title: String, completion: @escaping () -> Void) {
         
         OmdbAPIClient.searchMovies(title: title) { (movies) in
             self.searchedMovies.removeAll()
@@ -33,33 +33,36 @@ class OmdbDataStore {
                 self.searchedMovies.append(movie)
  
             }
+            completion()
         }
     }
     
-    func getMovieDetails(imdbID: String, completion: () -> Void) {
+    func getMovieDetails(imdbID: String, completion: @escaping () -> Void) {
        
         OmdbAPIClient.getMovieDetails(imdbID: imdbID) { (movieDetails) in
             
             self.searchedMovies.removeAll()
 
-            let title = movieDetails["Title"]
-            let year = movieDetails["Year"]
-            let rated = movieDetails["Rated"]
-            let released = movieDetails["Released"]
-            let runtime = movieDetails["Runtime"]
-            let genre = movieDetails["Genre"]
-            let director = movieDetails["Director"]
-            let writer = movieDetails["Writer"]
-            let actors = movieDetails["Actors"]
-            let plot = movieDetails["Plot"]
-            let language = movieDetails["Language"]
-            let country = movieDetails["Country"]
-            let poster = movieDetails["Poster"]
-            let type = movieDetails["Type"]
-            let imdbRating = movieDetails["imdbRating"]
+           if let title = movieDetails["Title"], // as! String
+            let year = movieDetails["Year"], // as! String
+            let rated = movieDetails["Rated"], // as! String
+            let released = movieDetails["Released"], // as! String
+            let runtime = movieDetails["Runtime"], // as! String
+            let genre = movieDetails["Genre"], // as! String
+            let director = movieDetails["Director"], // as! String
+            let writer = movieDetails["Writer"], // as! String
+            let actors = movieDetails["Actors"], // as! String
+            let plot = movieDetails["Plot"], // as! String
+            let language = movieDetails["Language"], // as! String
+            let country = movieDetails["Country"], // as! String
+            let poster = movieDetails["Poster"], // as! String
+            let type = movieDetails["Type"], // as! String
+            let imdbRating = movieDetails["imdbRating"] { // as! String
             
-            selectedMovie = Movie(title: title, year: year, rated: rated, released: released, runtime: runtime, genre: genre, director: director, writer: writer, actors: actors, plot: plot, language: language, country: country, poster: nil, type: type, imdbRating: imdbRating)
-                        
+            self.selectedMovie = Movie(title: title, year: year, rated: rated, released: released, runtime: runtime, genre: genre, director: director, writer: writer, actors: actors, plot: plot, language: language, country: country, poster: nil, type: type, imdbRating: imdbRating)
+            
+            }
+             completion()
         }
         
     }
