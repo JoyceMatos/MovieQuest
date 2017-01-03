@@ -16,6 +16,8 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Favorites"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +34,8 @@ class FavoritesTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
+        tableView.reloadData()
     }
     
 

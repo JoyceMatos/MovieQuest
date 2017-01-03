@@ -20,7 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="W0b-r6-YYr" kind="relationship" relationship="viewControllers" id="vMI-3c-G73"/>
-                        <segue destination="rkK-Jv-seD" kind="relationship" relationship="viewControllers" id="LDl-9X-Npp"/>
+                        <segue destination="whn-GA-5fJ" kind="relationship" relationship="viewControllers" id="LDl-9X-Npp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHP-i1-brZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,14 +77,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA8-Zl-DCo">
-                                                    <rect key="frame" x="136" y="8" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="favoriteButton:" destination="lBc-4C-UmR" eventType="touchUpInside" id="9tg-fY-ctL"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </view>
                                         <size key="customSize" width="200" height="200"/>
@@ -149,15 +141,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2rl-uu-td1" id="JEz-Qz-cyv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-UA-HUV">
-                                            <rect key="frame" x="16" y="11" width="239" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -166,11 +149,11 @@
                             <outlet property="delegate" destination="rkK-Jv-seD" id="qUN-I6-zmb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="SgM-g2-Wp9"/>
+                    <navigationItem key="navigationItem" id="arR-oK-had"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg1-6E-1Qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3045.5999999999999" y="178.56071964017991"/>
+            <point key="canvasLocation" x="3984.8000000000002" y="178.56071964017991"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="3Ll-HF-xrn">
@@ -287,6 +270,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4K-XH-0lR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3045.5999999999999" y="-542.87856071964018"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="toT-Jf-eqh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="whn-GA-5fJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="SgM-g2-Wp9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dbg-JE-kZr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rkK-Jv-seD" kind="relationship" relationship="rootViewController" id="HfC-jD-jm6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jo3-Wp-pZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3045.5999999999999" y="178.56071964017991"/>
         </scene>
     </scenes>
 </document>
