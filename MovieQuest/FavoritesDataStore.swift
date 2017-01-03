@@ -12,7 +12,7 @@ import CoreData
 class FavoritesDataStore {
     
     static let shared = FavoritesDataStore()
-    let favorites: [NSManagedObject] = []
+    var favorites: [NSManagedObject] = []
     
     private init() { }
 

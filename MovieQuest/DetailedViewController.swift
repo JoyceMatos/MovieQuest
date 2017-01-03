@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailedViewController: UIViewController {
 
     let store = OmdbDataStore.shared
+    let favoriteStore = FavoritesDataStore.shared
     
     var imdbID: String?
     
@@ -25,6 +27,34 @@ class DetailedViewController: UIViewController {
     
     
     @IBAction func favoriteButton(_ sender: Any) {
+        
+        // Save movies
+        
+        guard let movieTitle = movieTitleLabel.text else { print("leaving fav button"); return }
+        save(title: movieTitle)
+        
+        print(favoriteStore.favorites)
+        
+        
+    }
+    
+    
+    func save(title: String) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "FavoriteMovie", in: managedContext)!
+        let movie = NSManagedObject(entity: entity, insertInto: managedContext)
+        movie.setValue(title, forKeyPath: "title")
+        
+        
+        do {
+            try managedContext.save()
+            favoriteStore.favorites.append(movie)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     override func viewDidLoad() {
