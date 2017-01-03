@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
     let store = OmdbDataStore.shared
 
@@ -18,22 +18,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let heightAdjustment: CGFloat = 60.0
         
     @IBOutlet weak var movieView: UICollectionView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
  
-    @IBAction func searchButton(_ sender: Any) {
-        
-        
-        guard let input = searchTextField.text else { print("leaving searchButton"); return }
-        
-        DispatchQueue.main.async {
-        self.store.getSearchedMovies(title: input) {
-                            print("============Getting Called===============")
+
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let keywords = searchBar.text else { print("leaving searchbar"); return }
+        let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
+            self.store.getSearchedMovies(title: finalKeywords) {
+                
+                print("--- GETTING CALLED ---")
+                DispatchQueue.main.async {
+
                 self.movieView.reloadData()
+                
             }
         }
+       
         
-        // TODO: - Add Activity Indicator 
-        
+        self.view.endEditing(true)
     }
     
     
