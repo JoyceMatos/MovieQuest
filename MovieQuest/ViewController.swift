@@ -16,9 +16,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     private let leftAndRightPaddings: CGFloat = 10.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     let heightAdjustment: CGFloat = 60.0
-    
-    var favorites = [Movie]()
-    
+        
     @IBOutlet weak var movieView: UICollectionView!
     @IBOutlet weak var searchTextField: UITextField!
  

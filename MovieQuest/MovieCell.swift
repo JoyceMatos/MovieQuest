@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class MovieCell: UICollectionViewCell {
     
+    let store = FavoritesDataStore.shared
     var didTap = false
-    
+
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var titleOfMovie: UILabel!
     
@@ -22,6 +24,8 @@ class MovieCell: UICollectionViewCell {
         print(didTap)
             
             print(titleOfMovie.text)
+        
+        
            // add info to favorites
             // Store in core data
             // populate tableview of Favorites

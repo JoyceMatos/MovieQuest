@@ -23,6 +23,10 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var movieGenreLabel: UILabel!
     @IBOutlet weak var moviePlotLabel: UILabel!
     
+    
+    @IBAction func favoriteButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
