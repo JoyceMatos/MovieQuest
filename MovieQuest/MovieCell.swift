@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class MovieCell: UICollectionViewCell {
     
+    let store = FavoritesDataStore.shared
+    var didTap = false
+
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var titleOfMovie: UILabel!
-    
-    // TODO : - Add favorite Icon 
-    
     
 }

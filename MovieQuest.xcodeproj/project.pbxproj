@@ -19,6 +19,8 @@
 		2553779A1E1067EA002F7373 /* SearchedMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255377991E1067EA002F7373 /* SearchedMovie.swift */; };
 		25F73D8A1E116B0D00F6CCF7 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F73D891E116B0D00F6CCF7 /* MovieCell.swift */; };
 		25F73D8C1E11B3C300F6CCF7 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F73D8B1E11B3C200F6CCF7 /* DetailedViewController.swift */; };
+		25FF0DB11E1B0632001EFA7F /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FF0DB01E1B0632001EFA7F /* FavoritesTableViewController.swift */; };
+		25FF0DD41E1B227E001EFA7F /* FavoritesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FF0DD31E1B227E001EFA7F /* FavoritesDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		255377991E1067EA002F7373 /* SearchedMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedMovie.swift; sourceTree = "<group>"; };
 		25F73D891E116B0D00F6CCF7 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		25F73D8B1E11B3C200F6CCF7 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		25FF0DB01E1B0632001EFA7F /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		25FF0DD31E1B227E001EFA7F /* FavoritesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			children = (
 				2553778D1E0ADFAF002F7373 /* OmdbAPIClient.swift */,
 				2553778F1E0ADFBF002F7373 /* OmdbDataStore.swift */,
+				25FF0DD31E1B227E001EFA7F /* FavoritesDataStore.swift */,
 				255377911E0AE11A002F7373 /* Movie.swift */,
 				255377991E1067EA002F7373 /* SearchedMovie.swift */,
 			);
@@ -105,6 +110,7 @@
 			children = (
 				255377751E0ADF22002F7373 /* ViewController.swift */,
 				25F73D8B1E11B3C200F6CCF7 /* DetailedViewController.swift */,
+				25FF0DB01E1B0632001EFA7F /* FavoritesTableViewController.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				255377761E0ADF22002F7373 /* ViewController.swift in Sources */,
 				25F73D8A1E116B0D00F6CCF7 /* MovieCell.swift in Sources */,
 				255377901E0ADFBF002F7373 /* OmdbDataStore.swift in Sources */,
+				25FF0DB11E1B0632001EFA7F /* FavoritesTableViewController.swift in Sources */,
 				255377921E0AE11A002F7373 /* Movie.swift in Sources */,
+				25FF0DD41E1B227E001EFA7F /* FavoritesDataStore.swift in Sources */,
 				255377741E0ADF22002F7373 /* AppDelegate.swift in Sources */,
 				25F73D8C1E11B3C300F6CCF7 /* DetailedViewController.swift in Sources */,
 				2553777C1E0ADF22002F7373 /* MovieQuest.xcdatamodeld in Sources */,
