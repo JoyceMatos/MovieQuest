@@ -15,11 +15,10 @@ class DetailedViewController: UIViewController {
     let favoriteStore = FavoritesDataStore.shared
     
     var imdbID: String?
+    var imageSelected: String?
     
-    @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieYearLabel: UILabel!
-    @IBOutlet weak var movieDirectorsLabel: UILabel!
     @IBOutlet weak var movieWritersLabel: UILabel!
     @IBOutlet weak var movieActorsLabel: UILabel!
     @IBOutlet weak var movieGenreLabel: UILabel!
@@ -74,11 +73,7 @@ class DetailedViewController: UIViewController {
     }
     
     func updateLabels() {
-        
-        // TODO: - Carefully unwrap image
-//        let image = loadPosterImage(posterURL: (store.selectedMovie?.poster)!)
-//        posterImage.image = image
-//        
+ 
         movieTitleLabel.text = store.selectedMovie?.title
         movieYearLabel.text = store.selectedMovie?.year
  //       movieDirectorsLabel.text = store.selectedMovie?.director
@@ -86,18 +81,26 @@ class DetailedViewController: UIViewController {
         movieActorsLabel.text = store.selectedMovie?.actors
         movieGenreLabel.text = store.selectedMovie?.genre
         moviePlotLabel.text = store.selectedMovie?.plot
+        
+        movieTitleLabel.sizeToFit()
+        movieTitleLabel.textAlignment = .center
+        movieYearLabel.sizeToFit()
+        movieWritersLabel.sizeToFit()
+        movieActorsLabel.sizeToFit()
+        movieGenreLabel.sizeToFit()
+        moviePlotLabel.sizeToFit()
     }
     
-    func loadPosterImage(posterURL: String) -> UIImage? {
-        var image: UIImage?
-        
-        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
-            if data != nil {
-                return UIImage(data: data)
-            }
-        }
-        return nil
-    }
+//    func loadPosterImage(posterURL: String) -> UIImage? {
+//        var image: UIImage?
+//        
+//        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
+//            if data != nil {
+//                return UIImage(data: data)
+//            }
+//        }
+//        return nil
+//    }
 
 
 

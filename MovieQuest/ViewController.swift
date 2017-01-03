@@ -16,12 +16,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     private let leftAndRightPaddings: CGFloat = 10.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     let heightAdjustment: CGFloat = 60.0
+    var selectedImage = String()
         
     @IBOutlet weak var movieView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
  
 
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keywords = searchBar.text else { print("leaving searchbar"); return }
         let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
@@ -31,7 +31,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 DispatchQueue.main.async {
 
                 self.movieView.reloadData()
-                
             }
         }
        
@@ -96,11 +95,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let selectedMovie = store.searchedMovies[indexPath.item]
         
+        guard let moviePoster = selectedMovie.poster else { print("leaving selectedimage"); return }
         
+//        let image = loadPosterImage(posterURL: moviePoster)
+//        
+//        selectedImage = image
+        
+        selectedImage = moviePoster
+        
+        print(selectedImage)
+//
 
-        // TODO: - Segue into detailed view 
-     //   performSegue(withIdentifier: "showDetail", sender: self)
-    
         
     }
     
@@ -109,7 +114,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let destination = segue.destination as! DetailedViewController
             let indexPath = movieView.indexPath(for: sender as! UICollectionViewCell)
             destination.imdbID = store.searchedMovies[(indexPath?.item)!].imdbID
-
+            destination.imageSelected = selectedImage
             
         }
         
