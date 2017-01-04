@@ -50,6 +50,7 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
         let movie = store.favorites[indexPath.row]
+        
         cell.textLabel?.text = movie.value(forKey: "title") as? String
         return cell
     }

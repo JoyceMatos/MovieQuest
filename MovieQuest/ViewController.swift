@@ -53,6 +53,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
         movieView.collectionViewLayout = layout
         
+        tabBarController?.tabBar.barStyle = .black
+        tabBarController?.tabBar.tintColor = .white
+        
+        
+        
         
     }
     
@@ -64,8 +69,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.movieView.reloadData()
             }
         }
-        
-        
     }
     
     // MARK: - Data Source Methods
@@ -80,6 +83,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = movieView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCell
+        cell.titleOfMovie.sizeToFit()
+        
         let movie = store.searchedMovies[indexPath.item]
         
         // TODO: - Carefully unwrap image
@@ -94,19 +99,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedMovie = store.searchedMovies[indexPath.item]
-        
-        guard let moviePoster = selectedMovie.poster else { print("leaving selectedimage"); return }
-        
-//        let image = loadPosterImage(posterURL: moviePoster)
-//        
-//        selectedImage = image
-        
-        selectedImage = moviePoster
-        
-        print(selectedImage)
-//
 
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +107,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let destination = segue.destination as! DetailedViewController
             let indexPath = movieView.indexPath(for: sender as! UICollectionViewCell)
             destination.imdbID = store.searchedMovies[(indexPath?.item)!].imdbID
-            destination.imageSelected = selectedImage
             
         }
   
