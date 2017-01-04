@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class DetailedViewController: UIViewController {
-
+    
     let store = OmdbDataStore.shared
     let favoriteStore = FavoritesDataStore.shared
     
@@ -26,15 +26,10 @@ class DetailedViewController: UIViewController {
     
     
     @IBAction func favoriteButton(_ sender: Any) {
-        
-        // Save movies
-        
         guard let movieTitle = movieTitleLabel.text else { print("leaving fav button"); return }
         save(title: movieTitle)
         
         print(favoriteStore.favorites)
-        
-        
     }
     
     
@@ -58,7 +53,7 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         guard let id = imdbID else { print("no id found"); return }
         
         store.getMovieDetails(imdbID: id) {
@@ -73,10 +68,9 @@ class DetailedViewController: UIViewController {
     }
     
     func updateLabels() {
- 
+        
         movieTitleLabel.text = store.selectedMovie?.title
         movieYearLabel.text = store.selectedMovie?.year
- //       movieDirectorsLabel.text = store.selectedMovie?.director
         movieWritersLabel.text = store.selectedMovie?.writer
         movieActorsLabel.text = store.selectedMovie?.actors
         movieGenreLabel.text = store.selectedMovie?.genre
@@ -91,18 +85,18 @@ class DetailedViewController: UIViewController {
         moviePlotLabel.sizeToFit()
     }
     
-//    func loadPosterImage(posterURL: String) -> UIImage? {
-//        var image: UIImage?
-//        
-//        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
-//            if data != nil {
-//                return UIImage(data: data)
-//            }
-//        }
-//        return nil
-//    }
-
-
-
-
+    //    func loadPosterImage(posterURL: String) -> UIImage? {
+    //        var image: UIImage?
+    //
+    //        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
+    //            if data != nil {
+    //                return UIImage(data: data)
+    //            }
+    //        }
+    //        return nil
+    //    }
+    
+    
+    
+    
 }

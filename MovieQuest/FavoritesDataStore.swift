@@ -15,5 +15,4 @@ class FavoritesDataStore {
     var favorites: [NSManagedObject] = []
     
     private init() { }
-
 }

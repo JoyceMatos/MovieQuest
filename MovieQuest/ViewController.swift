@@ -117,10 +117,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             destination.imageSelected = selectedImage
             
         }
-        
-        
-        
-        
+  
     }
     
     

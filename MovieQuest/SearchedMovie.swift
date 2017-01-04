@@ -25,9 +25,6 @@ class SearchedMovie {
         self.imdbID = imdbID
         
     }
-    
-    
-
 }
 
 extension OmdbDataStore: CustomStringConvertible {
