@@ -11,6 +11,8 @@ import CoreData
 
 class DetailedViewController: UIViewController {
     
+    // Properties
+    
     let store = OmdbDataStore.shared
     let favoriteStore = FavoritesDataStore.shared
     
@@ -28,10 +30,24 @@ class DetailedViewController: UIViewController {
     @IBAction func favoriteButton(_ sender: Any) {
         guard let movieTitle = movieTitleLabel.text else { print("leaving fav button"); return }
         save(title: movieTitle)
-        
-        print(favoriteStore.favorites)
     }
     
+    // MARK:- View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let id = imdbID else { print("no id found"); return }
+        
+        store.getMovieDetails(imdbID: id) {
+            
+            DispatchQueue.main.async {
+                self.updateLabels()
+            }
+        }
+    }
+    
+    // Methods 
     
     func save(title: String) {
         
@@ -51,21 +67,6 @@ class DetailedViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        guard let id = imdbID else { print("no id found"); return }
-        
-        store.getMovieDetails(imdbID: id) {
-            
-            DispatchQueue.main.async {
-                print("=====DETAILS CALLED===============")
-                self.updateLabels()
-            }
-            
-            
-        }
-    }
     
     func updateLabels() {
         
@@ -84,19 +85,5 @@ class DetailedViewController: UIViewController {
         movieGenreLabel.sizeToFit()
         moviePlotLabel.sizeToFit()
     }
-    
-    //    func loadPosterImage(posterURL: String) -> UIImage? {
-    //        var image: UIImage?
-    //
-    //        if let url = URL(string: posterURL), let data = try? Data(contentsOf: url) {
-    //            if data != nil {
-    //                return UIImage(data: data)
-    //            }
-    //        }
-    //        return nil
-    //    }
-    
-    
-    
     
 }

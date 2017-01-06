@@ -11,6 +11,8 @@ import CoreData
 
 class MovieCell: UICollectionViewCell {
     
+    // Properties
+    
     let store = FavoritesDataStore.shared
     var didTap = false
 

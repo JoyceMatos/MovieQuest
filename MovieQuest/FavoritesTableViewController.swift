@@ -13,6 +13,8 @@ class FavoritesTableViewController: UITableViewController {
     
     let store = FavoritesDataStore.shared
     
+    // Mark: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,7 @@ class FavoritesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

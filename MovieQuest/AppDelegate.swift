@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // MARK: - Navigation Attributes
         var navigationAppearance = UINavigationBar.appearance()
         navigationAppearance.barStyle = .blackTranslucent
         navigationAppearance.tintColor = UIColor.white

@@ -10,30 +10,29 @@ import UIKit
 
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
-
+    
+    // Properties
+    
     let store = OmdbDataStore.shared
-
+    
     private let leftAndRightPaddings: CGFloat = 10.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     let heightAdjustment: CGFloat = 60.0
     var selectedImage = String()
-        
+    
     @IBOutlet weak var movieView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
- 
-
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keywords = searchBar.text else { print("leaving searchbar"); return }
         let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
-            self.store.getSearchedMovies(title: finalKeywords) {
-                
-                print("--- GETTING CALLED ---")
-                DispatchQueue.main.async {
-
+        self.store.getSearchedMovies(title: finalKeywords) {
+            
+            DispatchQueue.main.async {
                 self.movieView.reloadData()
             }
         }
-       
         
         self.view.endEditing(true)
     }
@@ -47,7 +46,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         movieView.delegate = self
         movieView.dataSource = self
         
-        
         let width = (movieView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: width + heightAdjustment)
@@ -56,16 +54,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         tabBarController?.tabBar.barStyle = .black
         tabBarController?.tabBar.tintColor = .white
         
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.store.getSearchedMovies(title: "crime") {
             
             DispatchQueue.main.async {
-                print("============Getting Called===============")
                 self.movieView.reloadData()
             }
         }
@@ -87,19 +81,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let movie = store.searchedMovies[indexPath.item]
         
-        // TODO: - Carefully unwrap image
         let image = loadPosterImage(posterURL: movie.poster!)
         cell.moviePoster.image = image
         cell.titleOfMovie.text = movie.title
         cell.backgroundColor = UIColor.darkGray
-                
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedMovie = store.searchedMovies[indexPath.item]
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,13 +102,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             destination.imdbID = store.searchedMovies[(indexPath?.item)!].imdbID
             
         }
-  
+        
     }
     
-    
-    
-    
-    // Mark: - Image functions
+
+    // Mark: - Image function
     func loadPosterImage(posterURL: String) -> UIImage? {
         var image: UIImage?
         
@@ -126,7 +117,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         return nil
     }
-
+    
 }
 
 
